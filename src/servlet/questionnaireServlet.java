@@ -40,6 +40,16 @@ public class questionnaireServlet extends  HttpServlet {
     }
 
     }
-
-
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        persons.forEach((k, v) -> {
+            try {
+                resp.getWriter().print(String.format(TEMPLATE, v));
+                resp.getWriter().close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 }
+
