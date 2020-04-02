@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "Questionnaire", urlPatterns = {"/index"})
+@WebServlet(name = "Questionnaire", urlPatterns = {"/questionnaire"})
 public class questionnaireServlet extends  HttpServlet {
 
     static final String TEMPLATE = "<html>" +
@@ -23,11 +23,11 @@ public class questionnaireServlet extends  HttpServlet {
        String name = req.getParameter("name");
        String lastName = req.getParameter("lastname");
        int age = Integer.parseInt(req.getParameter("age"));
-       String questionOne = req.getParameter("What are the three principles of OOP?");
-       String questionTwo = req.getParameter("What is servlet?");
+       String questionOne = req.getParameter("questionOne");
+       String questionTwo = req.getParameter("questionTwo");
 
     if(name==null||lastName==null||questionOne==null||questionTwo==null) {
-        String exception = "You didn't fill all fields of qestionnarie";
+        String exception = "You didn't fill all fields of questionnaire";
         resp.getWriter().println(String.format(TEMPLATE, exception));
     }else if(age<=0){
         String exception = "Wrong age";
