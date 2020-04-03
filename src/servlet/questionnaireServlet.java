@@ -18,6 +18,10 @@ public class questionnaireServlet extends  HttpServlet {
 
     static final Map<Integer, String> persons = new HashMap<Integer, String>();
 
+    public static Map<Integer, String> getPersons() {
+        return persons;
+    }
+
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
        String name = req.getParameter("name");
